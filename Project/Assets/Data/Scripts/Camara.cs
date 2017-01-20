@@ -11,16 +11,20 @@ public class Camara : MonoBehaviour {
 
     Vector3 offset;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
         camara = gameObject.gameObject;
+    }
+
+    // Use this for initialization
+    void Start () {
         offset = new Vector3(0,5,0);
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        camara.transform.DOMove(Personaje.transform.position + offset,3);
+        camara.transform.DOMove(Personaje.transform.position + offset,1);
 
 
     }
