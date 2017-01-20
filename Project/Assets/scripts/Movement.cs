@@ -5,7 +5,12 @@ using DG.Tweening;
 [RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour {
     [SerializeField]
-    private float Velocidad;
+    private float velocidad;
+    public float Velocidad {
+        get {
+            return velocidad;
+        }
+    }
 
     Rigidbody rb;
     
@@ -31,7 +36,7 @@ public class Movement : MonoBehaviour {
     {
         Vector3 direccionH = new Vector3(Input.GetAxis("Horizontal"),0, Input.GetAxis("Vertical"));
 
-        rb.MovePosition(rb.position + direccionH * Velocidad *  Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + direccionH * velocidad *  Time.fixedDeltaTime);
         
     }
 
