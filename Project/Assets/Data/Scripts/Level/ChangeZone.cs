@@ -4,6 +4,7 @@ using UnityEngine;
 
 using DG.Tweening;
 
+[RequireComponent(typeof(BoxCollider))]
 public sealed class ChangeZone : MonoBehaviour {
 
     [SerializeField]
@@ -16,13 +17,14 @@ public sealed class ChangeZone : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         StartCoroutine(ChangeZoneCoroutine(other.transform));
-        
+        gameObject.GetComponent<BoxCollider>().isTrigger = true;
+        gameObject.layer = LayerDefinitions.PLAYER_TRIGGER_LAYER;
     }
 
     private IEnumerator ChangeZoneCoroutine(Transform playerTransform) {
         levelToDisable.SetActive(false);
         Movement playerMovement = playerTransform.GetComponent<Movement>();
-        float speed = playerTransform.GetComponent<Movement>().Velocidad;
+        float speed = playerTransform.GetComponent<Movement>().Velocidad * 0.2f;
         float distance = (targetPoint.position - playerTransform.position).magnitude;
         //@TODO: Solo desactivar el input
         playerMovement.enabled = false;
@@ -34,5 +36,6 @@ public sealed class ChangeZone : MonoBehaviour {
         } else {
             Debug.Log("LevelComplete");
         }
+        gameObject.SetActive(false);
     }
 }

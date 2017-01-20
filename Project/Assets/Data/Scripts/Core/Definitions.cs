@@ -16,5 +16,6 @@ public sealed class LayerDefinitions {
 
     public static int ENEMY_MASK = (1 << ENEMY_LAYER);
     public static int PLAYER_MASK = (1 << PLAYER_LAYER);
+    public static int PLAYER_AND_ENEMIES_MASK = (1 << PLAYER_LAYER) | (1 << PLAYER_LAYER);
 
 }
