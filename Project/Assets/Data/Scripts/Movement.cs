@@ -6,6 +6,8 @@ using DG.Tweening;
 public class Movement : MonoBehaviour {
     [SerializeField]
     private float velocidad;
+    private BoxCollider Cajita;
+
     public float Velocidad
     {
         get
@@ -20,6 +22,7 @@ public class Movement : MonoBehaviour {
     void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        Cajita = gameObject.GetComponent<BoxCollider>();
     } 
 
     // Use this for initialization
@@ -31,7 +34,7 @@ public class Movement : MonoBehaviour {
     void Update()
     {
 
-        
+
 
     }
 
