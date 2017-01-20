@@ -21,6 +21,7 @@ public sealed class ChangeZone : MonoBehaviour {
 
     private IEnumerator ChangeZoneCoroutine(Transform playerTransform) {
         levelToDisable.SetActive(false);
+        float speed = playerTransform.GetComponent<Movement>().Velocidad;
         //targetPoint.
         playerTransform.DOMove(targetPoint.position, 0.5f);
         yield return new WaitForSeconds(0.5f);
