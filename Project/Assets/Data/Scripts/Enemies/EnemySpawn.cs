@@ -45,10 +45,18 @@ public sealed class EnemySpawn : MonoBehaviour {
                 nextSpawnTime[i] = Time.time + timeBetweenSpawns[i];
                 ++numEnemiesSpawned[i];
 
-                Vector3 position = Random.insideUnitSphere;
-                position.x *= Random.Range(0.0f, spawnRadius);
-                position.y = 0.1f;
-                position.z *= Random.Range(0.0f, spawnRadius);
+                Collider[] colliders;
+                Vector3 position;
+                int save = 50;
+                do {
+                    position = Random.insideUnitSphere;
+                    position.x *= Random.Range(0.0f, spawnRadius);
+                    position.y = 0.1f;
+                    position.z *= Random.Range(0.0f, spawnRadius);
+
+                    colliders = Physics.OverlapSphere(position, 0.5f, LayerDefinitions.ENEMY_MASK);
+                    --save;
+                } while (colliders.Length > 0 && save > 0);
 
                 Enemy enemy = EnemyManager.Instance.SpawnEnemy(enemiesToSpawn[i], position, this);
                 enemiesSpawned.Add(enemy);

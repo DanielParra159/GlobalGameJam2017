@@ -21,10 +21,18 @@ public sealed class ChangeZone : MonoBehaviour {
 
     private IEnumerator ChangeZoneCoroutine(Transform playerTransform) {
         levelToDisable.SetActive(false);
+        Movement playerMovement = playerTransform.GetComponent<Movement>();
         float speed = playerTransform.GetComponent<Movement>().Velocidad;
-        //targetPoint.
-        playerTransform.DOMove(targetPoint.position, 0.5f);
+        float distance = (targetPoint.position - playerTransform.position).magnitude;
+        //@TODO: Solo desactivar el input
+        playerMovement.enabled = false;
+        playerTransform.DOMove(targetPoint.position, distance / speed);
         yield return new WaitForSeconds(0.5f);
-        levelToEnable.SetActive(true);
+        if (levelToEnable != null) {
+            levelToEnable.SetActive(true);
+            playerMovement.enabled = true;
+        } else {
+            Debug.Log("LevelComplete");
+        }
     }
 }
