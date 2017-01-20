@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<EditorAutoSavePreferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <enabled>true</enabled>
+  <autoSaveOnRun>true</autoSaveOnRun>
+  <autoSaveOnIntervals>true</autoSaveOnIntervals>
+  <saveScene>true</saveScene>
+  <saveProject>true</saveProject>
+  <logSaves>true</logSaves>
+  <autoSaveIntervals>300</autoSaveIntervals>
+</EditorAutoSavePreferences>
