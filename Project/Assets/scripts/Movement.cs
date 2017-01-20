@@ -6,11 +6,14 @@ using DG.Tweening;
 public class Movement : MonoBehaviour {
     [SerializeField]
     private float velocidad;
-    public float Velocidad {
-        get {
+    public float Velocidad
+    {
+        get
+        {
             return velocidad;
         }
     }
+    
 
     Rigidbody rb;
     
