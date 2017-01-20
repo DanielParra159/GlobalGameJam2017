@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+[RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour {
     [SerializeField]
     private float Velocidad;
