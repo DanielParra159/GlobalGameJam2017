@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4049649388429076}
   - component: {fileID: 65615189798582354}
   - component: {fileID: 114117690544142498}
+  - component: {fileID: 82627069913748230}
   m_Layer: 13
   m_Name: Moto
   m_TagString: Untagged
@@ -113,6 +114,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.57, y: 1, z: 1}
   m_Center: {x: 0.15, y: 0, z: 0}
+--- !u!82 &82627069913748230
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1324981483340536}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3cc8a91a45168bf47be419dfd1b6925f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114117690544142498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +209,7 @@ MonoBehaviour:
   breakRenderer: {fileID: 212582602582757298}
   explosionPrefab: {fileID: 1051734008474740, guid: adae8a9d68b50134ca3b053298380d2d,
     type: 2}
+  explosion: {fileID: 82627069913748230}
 --- !u!212 &212582602582757298
 SpriteRenderer:
   m_ObjectHideFlags: 1
