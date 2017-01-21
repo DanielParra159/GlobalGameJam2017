@@ -100,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 1800558788518436}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a60e6d8f552d45f4fa465901fd6e021d, type: 2}
+  m_Controller: {fileID: 9100000, guid: a0fcc1cff05f0dd49ae7c64c716182df, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -147,10 +147,11 @@ MonoBehaviour:
   enemyAttack: 0
   myRenderer: {fileID: 212514810999919680}
   health: 1
-  minDistanceToAttack: 2
-  attackDistance: 1
+  minDistanceToAttack: 1
+  attackDistance: 0.5
   damage: 1
   colorDamage: {r: 1, g: 0, b: 0, a: 1}
+  myAnimator: {fileID: 0}
 --- !u!135 &135605398658293396
 SphereCollider:
   m_ObjectHideFlags: 1
