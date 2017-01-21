@@ -87,6 +87,7 @@ public sealed class EnemySpawn : MonoBehaviour {
     }
 
     public void EnemyDead(Enemy enemy) {
+        enemy.MyGameObject.RecyclePool();
         enemiesSpawned.Remove(enemy);
     }
 

@@ -61,6 +61,7 @@ public sealed class Enemy : MonoBehaviour {
             switch (value) {
                 case States.Walk:
                     myNavMeshAgent.destination = Movement.Instance.transform.position;
+                    myNavMeshAgent.Resume();
                     break;
                 case States.Attack:
                     //Trigger anim
@@ -78,6 +79,7 @@ public sealed class Enemy : MonoBehaviour {
 
     [SerializeField]
     private int health = 5;
+    private int currentHealth = 5;
     [SerializeField]
     private float minDistanceToAttack = 1.0f;
     [SerializeField]
@@ -113,12 +115,19 @@ public sealed class Enemy : MonoBehaviour {
     public void Reset(EnemySpawn spawn) {
         this.spawn = spawn;
         CurrentState = States.Walk;
+        currentHealth = health;
     }
 
     //Se llama desde el animator
     public void Attack() {
         Movement.Instance.DoDamage(damage, Vector3.Normalize(myNavMeshAgent.destination - MyTransform.position));
+        StartCoroutine(Temp());
     }
+    private IEnumerator Temp() {
+        yield return new WaitForSeconds(1.0f);
+        Walk();
+    }
+
     //Se llama desde el animator
     public void Walk() {
         CurrentState = States.Walk;
@@ -133,6 +142,11 @@ public sealed class Enemy : MonoBehaviour {
         myRenderer.transform.DOShakePosition(0.2f, 0.01f, 10, 90, false, false);
 
         myRigidbody.AddForce(damageDir);
+
+        currentHealth -= damage;
+        if (currentHealth <= 0) {
+            Die();
+        }
     }
 
 

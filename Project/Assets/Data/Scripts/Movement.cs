@@ -37,6 +37,10 @@ public sealed class Movement : MonoBehaviour {
 
     int lastDirZ = 0;
     int lastDirX = 0;
+    bool moving = false;
+
+    private Vector3 direction;
+    private Vector3 movingDirection;
 
     void Awake()
     {
@@ -52,17 +56,32 @@ public sealed class Movement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        if (direction.sqrMagnitude > 0) {
+            moving = true;
+            movingDirection = direction;
+        } else {
+            moving = false;
+            direction = movingDirection;
+        }
 
+        if (Input.GetButton("Fire")) {
+            Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            position.y = 0.1f;
 
+            direction = Vector3.Normalize((position - transform.position));
 
+            myAnimator.SetBool("Attack", true);
+        } else {
+            myAnimator.SetBool("Attack", false);
+        }
+        SetSpriteDir(direction.x, direction.z);
     }
 
     void FixedUpdate()
     {
-        Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),0, Input.GetAxis("Vertical"));
-        SetSpriteDir(direction.x, direction.z);
-
-        rb.MovePosition(rb.position + direction * velocidad *  Time.fixedDeltaTime);
+        if (moving)
+            rb.MovePosition(rb.position + movingDirection * velocidad *  Time.fixedDeltaTime);
         smoothPosition = Vector3.Lerp(smoothPosition, rb.position, (rb.position-smoothPosition).magnitude * 20.0f* Time.fixedDeltaTime);
     }
 
