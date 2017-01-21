@@ -49,6 +49,7 @@ public class Proyectil : MonoBehaviour {
         else if (ColliderPared.Length > 0) {
             UltimaPosicion =  gameObject.transform.position;
             Destroy(gameObject);
+        //    Instantiate(NuevaOnda);
             //Instantiate(NuevaOnda);
         } else if (Time.time > nextTrailTime)
         {
