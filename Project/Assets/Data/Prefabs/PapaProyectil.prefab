@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Personaje: {fileID: 0}
+  Speed: 3
 --- !u!212 &212412109001631140
 SpriteRenderer:
   m_ObjectHideFlags: 1

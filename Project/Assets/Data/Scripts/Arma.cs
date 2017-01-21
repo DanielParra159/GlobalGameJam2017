@@ -5,7 +5,7 @@ using UnityEngine;
 public class Arma : MonoBehaviour
 {
 
-    private float BulletFireRate = 0.1f;
+    private float BulletFireRate = 0.05f;
     [SerializeField]
     private GameObject ProjectilePrefab;
     private GameObject Personaje;
@@ -33,10 +33,13 @@ public class Arma : MonoBehaviour
 
             Position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Position.y = 0.1f;
-            
-            Instantiate(ProjectilePrefab,
+
+            Direccion = Vector3.Normalize((Position - Personaje.transform.position));
+
+            GameObject pro = Instantiate(ProjectilePrefab,
                         Position,
                         Quaternion.identity);
+            pro.GetComponent<Proyectil>().Configure(Direccion);
             yield return new WaitForSeconds(BulletFireRate);
         }
 

@@ -7,17 +7,23 @@ public class Proyectil : MonoBehaviour {
     [SerializeField]
     private GameObject Personaje;
     private Vector3 Direccion;
-
+    private Vector3 Personajeposicion;
+    [SerializeField]
     private float Speed;
 
 	// Use this for initialization
 	void Start () {
-        Direccion = Vector3.Normalize((gameObject.transform.position - Personaje.transform.position));
-        Speed = 3;
+    }
+
+    public void Configure(Vector3 dir)
+    {
+        Direccion = dir;
     }
 
     // Update is called once per frame
     void Update () {
-        transform.position += Direccion * Speed * Time.deltaTime;
+        gameObject.transform.position += Direccion * Speed * Time.deltaTime;
+
+        Destroy(gameObject, 4);
     }
 }

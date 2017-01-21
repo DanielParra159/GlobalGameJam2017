@@ -25,7 +25,5 @@ public class Camara : MonoBehaviour {
 	void Update () {
 
         camara.transform.DOMove(Personaje.transform.position + offset,1);
-
-
     }
 }
