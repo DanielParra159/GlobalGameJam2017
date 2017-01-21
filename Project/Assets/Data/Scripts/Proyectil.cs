@@ -16,13 +16,13 @@ public class Proyectil : MonoBehaviour {
     private float Speed;
 
     private float nextTrailTime = 0;
-    private float delayBetweenTrails = 0.2f;
+    private float delayBetweenTrails = 0.1f;
 
     private Vector3 UltimaPosicion;
 
     // Use this for initialization
     void Start () {
-        trailGO.CreatePool(20);
+        trailGO.CreatePool(300);
     }
 
     public void Configure(Vector3 dir)
@@ -52,9 +52,9 @@ public class Proyectil : MonoBehaviour {
             Instantiate(NuevaOnda);
         } else if (Time.time > nextTrailTime)
         {
-            SpriteRenderer spriteRenderer = trailGO.SpawnPool(transform.position, transform.rotation).GetComponent<SpriteRenderer>();
-            //spriteRenderer.DOFade(1.0f, 0.0f);
-            //spriteRenderer.DOFade(0.0f, 1.0f);
+            SpriteRenderer spriteRenderer = trailGO.SpawnPool(transform.position, transform.rotation).GetComponentInChildren<SpriteRenderer>();
+            spriteRenderer.DOFade(1.0f, 0.0f);
+            spriteRenderer.DOFade(0.0f, 0.5f);
             nextTrailTime = Time.time + delayBetweenTrails;
         }
     }

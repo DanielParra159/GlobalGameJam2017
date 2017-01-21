@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c920bf220ec17d499f0013c3f3d7808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trailGO: {fileID: 1824684472323056, guid: 17bff45bd803a464baa205c934bf7344, type: 2}
+  trailGO: {fileID: 1962819255691480, guid: 17bff45bd803a464baa205c934bf7344, type: 2}
   NuevaOnda: {fileID: 0}
   Speed: 3
 --- !u!212 &212282955986101944
