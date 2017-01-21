@@ -192,11 +192,6 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 114506990731533086, guid: 767d14ed54454cc4aa8d115d795859a8,
-        type: 2}
-      propertyPath: NumberOfBullets
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 767d14ed54454cc4aa8d115d795859a8, type: 2}
   m_IsPrefabParent: 0

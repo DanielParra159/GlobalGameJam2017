@@ -11,7 +11,7 @@ public class Arma : MonoBehaviour
     private GameObject Personaje;
     public int NumberOfBullets = 2;
     private float ProjectileOffset = 1.3f;
-    private Vector3 Direccion;    
+    private Vector3 Direccion;
 
     private void Awake()
     {
@@ -33,10 +33,9 @@ public class Arma : MonoBehaviour
 
             Position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Position.y = 0.1f;
-            Direccion = Vector3.Normalize((Position - Personaje.transform.position));
             
             Instantiate(ProjectilePrefab,
-                        Personaje.transform.position,
+                        Position,
                         Quaternion.identity);
             yield return new WaitForSeconds(BulletFireRate);
         }

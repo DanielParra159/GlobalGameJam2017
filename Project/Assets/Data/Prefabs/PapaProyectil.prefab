@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1656128499361088}
+  m_RootGameObject: {fileID: 1657584808291368}
   m_IsPrefabParent: 1
---- !u!1 &1390371376061384
+--- !u!1 &1171066244372124
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4763757023067978}
-  - component: {fileID: 212019446530283430}
+  - component: {fileID: 4957791877305950}
+  - component: {fileID: 212412109001631140}
   m_Layer: 15
   m_Name: Projeee
   m_TagString: Untagged
@@ -27,15 +27,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1656128499361088
+--- !u!1 &1657584808291368
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4414129189012640}
-  - component: {fileID: 114203355292928816}
+  - component: {fileID: 4432850529712076}
+  - component: {fileID: 114971849381308482}
   m_Layer: 15
   m_Name: PapaProyectil
   m_TagString: Untagged
@@ -43,50 +43,51 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4414129189012640
+--- !u!4 &4432850529712076
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1656128499361088}
+  m_GameObject: {fileID: 1657584808291368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4763757023067978}
+  - {fileID: 4957791877305950}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4763757023067978
+--- !u!4 &4957791877305950
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390371376061384}
+  m_GameObject: {fileID: 1171066244372124}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4414129189012640}
+  m_Father: {fileID: 4432850529712076}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &114203355292928816
+--- !u!114 &114971849381308482
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1656128499361088}
+  m_GameObject: {fileID: 1657584808291368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9876e55528d30cc46a5340d701d916f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c920bf220ec17d499f0013c3f3d7808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212019446530283430
+  Personaje: {fileID: 0}
+--- !u!212 &212412109001631140
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1390371376061384}
+  m_GameObject: {fileID: 1171066244372124}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
