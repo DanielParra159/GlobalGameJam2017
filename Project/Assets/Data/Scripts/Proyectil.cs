@@ -40,7 +40,14 @@ public class Proyectil : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Collider[] colision;
+        Collider[] colision = Physics.OverlapSphere(gameObject.transform.position, 0.5f,LayerDefinitions.ENEMY_MASK);
+        for (int i = 0; i < colision.Length; i++) {
+            Enemy enemigo = colision[i].GetComponent<Enemy>();
+            if (enemigo != null) { 
+            enemigo.DoDamage(1,Direccion);
+            }
+        }
+
         gameObject.transform.position += Direccion * Speed * Time.deltaTime;
 
         if (Time.time > nextTrailTime)
@@ -49,6 +56,10 @@ public class Proyectil : MonoBehaviour
             spriteRenderer.DOFade(1.0f, 0.0f);
             spriteRenderer.DOFade(0.0f, 0.5f);
             nextTrailTime = Time.time + delayBetweenTrails;
+        }
+        if (colision.Length > 0) {
+            Destroy(gameObject);
+
         }
 
     }
