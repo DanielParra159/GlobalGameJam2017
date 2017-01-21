@@ -13,10 +13,9 @@ public sealed class Destructible : MonoBehaviour {
     [SerializeField]
     private GameObject explosionPrefab;
 
-    private BoxCollider myBoxCollider;
+    private bool exploded = false;
 
     private void Awake() {
-        myBoxCollider = gameObject.GetComponent<BoxCollider>();
         explosionPrefab.CreatePool(50);
         Reset();
     }
@@ -25,17 +24,20 @@ public sealed class Destructible : MonoBehaviour {
     public void Reset () {
         myRenderer.enabled = true;
         breakRenderer.enabled = false;
-        myBoxCollider.enabled = true;
+        exploded = false;
 
     }
 
     public void Explode() {
         explosionPrefab.SpawnPool(transform.position);
-        myBoxCollider.enabled = false;
+        myRenderer.enabled = false;
+        breakRenderer.enabled = true;
+        MainCamara.Instance.Shake(1.0f);
+        exploded = true;
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.layer == LayerDefinitions.PLAYER_PROJECTILE_LAYER) {
+        if (!exploded && collision.gameObject.layer == LayerDefinitions.PLAYER_PROJECTILE_LAYER) {
             Explode();
         }
     }
