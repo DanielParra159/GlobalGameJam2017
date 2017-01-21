@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1c579d660c25e654e9da99599b8d3fbf
-timeCreated: 1484992413
+guid: f4c4a082b63b0ff4c9a48c0ca87f7e86
+timeCreated: 1484996216
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
@@ -27,7 +27,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -59,18 +59,18 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 2048
-    textureFormat: -1
+    maxTextureSize: 8192
+    textureFormat: 10
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
-  spritePackingTag: Pack01
+  spritePackingTag: 
   userData: 
   assetBundleName: 
   assetBundleVariant: 
