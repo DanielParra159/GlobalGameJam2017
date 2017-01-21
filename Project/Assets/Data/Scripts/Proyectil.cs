@@ -1,8 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+using Common.Utils;
+
+using DG.Tweening;
 
 public class Proyectil : MonoBehaviour {
+
+    [SerializeField]
+    private GameObject trailGO;
 
     [SerializeField]
     private GameObject NuevaOnda;
@@ -10,15 +15,22 @@ public class Proyectil : MonoBehaviour {
     [SerializeField]
     private float Speed;
 
+    private float nextTrailTime = 0;
+    private float delayBetweenTrails = 0.2f;
+
     private Vector3 UltimaPosicion;
 
     // Use this for initialization
     void Start () {
+        trailGO.CreatePool(20);
     }
 
     public void Configure(Vector3 dir)
     {
         Direccion = dir;
+        float angle = Mathf.Atan2(Direccion.x, Direccion.z) * Mathf.Rad2Deg;
+        transform.Rotate(0, angle, 0);
+        nextTrailTime = Time.time + delayBetweenTrails;
     }
 
     // Update is called once per frame
@@ -34,11 +46,16 @@ public class Proyectil : MonoBehaviour {
         if (Colliders.Length > 0) {
             Destroy(gameObject);
         }
-
         else if (ColliderPared.Length > 0) {
             UltimaPosicion =  gameObject.transform.position;
             Destroy(gameObject);
             Instantiate(NuevaOnda);
+        } else if (Time.time > nextTrailTime)
+        {
+            SpriteRenderer spriteRenderer = trailGO.SpawnPool(transform.position, transform.rotation).GetComponent<SpriteRenderer>();
+            //spriteRenderer.DOFade(1.0f, 0.0f);
+            //spriteRenderer.DOFade(0.0f, 1.0f);
+            nextTrailTime = Time.time + delayBetweenTrails;
         }
     }
 }
