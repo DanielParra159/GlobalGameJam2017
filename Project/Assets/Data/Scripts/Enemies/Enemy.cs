@@ -46,6 +46,7 @@ public sealed class Enemy : MonoBehaviour {
     }
 
     private Rigidbody myRigidbody;
+    [SerializeField]
     private SpriteRenderer myRenderer;
     private NavMeshAgent myNavMeshAgent;
 
@@ -64,6 +65,8 @@ public sealed class Enemy : MonoBehaviour {
                 case States.Attack:
                     //Trigger anim
                     //myNavMeshAgent.destination = MyTransform.position;
+                    //@TODO: Attack se llama desde el animator
+                    Attack();
                     myNavMeshAgent.Stop();
                     break;
                 case States.Die:
@@ -114,14 +117,20 @@ public sealed class Enemy : MonoBehaviour {
 
     //Se llama desde el animator
     public void Attack() {
-        Movement.Instance.DoDamage(damage);
+        Movement.Instance.DoDamage(damage, Vector3.Normalize(myNavMeshAgent.destination - MyTransform.position));
+    }
+    //Se llama desde el animator
+    public void Walk() {
+        CurrentState = States.Walk;
     }
 
     public void DoDamage(int damage, Vector3 damageDir) {
+        damageDir.y = 0.0f;
         CurrentState = States.DoDamage;
         Sequence mySequence = DOTween.Sequence();
         mySequence.Insert(0.0f, myRenderer.DOColor(colorDamage, 0.2f));
         mySequence.Insert(0.2f, myRenderer.DOColor(Color.white, 0.2f));
+        myRenderer.transform.DOShakePosition(0.2f, 0.01f, 10, 90, false, false);
 
         myRigidbody.AddForce(damageDir);
     }
@@ -130,5 +139,12 @@ public sealed class Enemy : MonoBehaviour {
     private void Die() {
         spawn.EnemyDead(this);
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position * minDistanceToAttack);
+    }
+#endif
 
 }

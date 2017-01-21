@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 124657327545418144}
   - component: {fileID: 81752512642198822}
   - component: {fileID: 114075267553346658}
-  - component: {fileID: 114922831098850698}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -105,19 +104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Personaje: {fileID: 0}
---- !u!114 &114922831098850698
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1669806603627118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37d56c93ab322ed4caef52cb6e9d1484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 0}
-  NumberOfBullets: 3
 --- !u!124 &124657327545418144
 Behaviour:
   m_ObjectHideFlags: 1

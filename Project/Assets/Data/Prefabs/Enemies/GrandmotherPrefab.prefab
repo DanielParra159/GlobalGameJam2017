@@ -113,7 +113,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   enemyAttack: 0
-  health: 0
+  myRenderer: {fileID: 212514810999919680}
+  health: 1
+  minDistanceToAttack: 2
+  attackDistance: 1
+  damage: 1
+  colorDamage: {r: 1, g: 0, b: 0, a: 1}
 --- !u!135 &135605398658293396
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -178,6 +183,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5fe7a6a7bb7d90340a3a9942b418846e, type: 3}
-  m_Color: {r: 1, g: 0.1397059, b: 0.15750535, a: 1}
+  m_Color: {r: 0.18382353, g: 1, b: 0.35831657, a: 1}
   m_FlipX: 0
   m_FlipY: 0

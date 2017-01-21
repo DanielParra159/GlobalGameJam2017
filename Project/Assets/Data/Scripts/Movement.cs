@@ -21,7 +21,11 @@ public sealed class Movement : MonoBehaviour {
     
 
     Rigidbody rb;
-    
+    [SerializeField]
+    private SpriteRenderer myRenderer;
+    [SerializeField]
+    private Color colorDamage = Color.red;
+
     void Awake()
     {
         Instance = this;
@@ -49,8 +53,13 @@ public sealed class Movement : MonoBehaviour {
         
     }
 
-    public void DoDamage(int damage) {
+    public void DoDamage(int damage, Vector3 damageDir) {
+        damageDir.y = 0.0f;
 
+        Sequence mySequence = DOTween.Sequence();
+        mySequence.Insert(0.0f, myRenderer.DOColor(colorDamage, 0.2f));
+        mySequence.Insert(0.2f, myRenderer.DOColor(Color.white, 0.2f));
+        myRenderer.transform.DOShakePosition(0.2f, 0.01f, 10, 90, false, false);
     }
 
 }
