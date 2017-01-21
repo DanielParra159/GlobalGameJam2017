@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailGO: {fileID: 1962819255691480, guid: 17bff45bd803a464baa205c934bf7344, type: 2}
-  NuevaOnda: {fileID: 0}
+  NuevaOnda: {fileID: 1962819255691480, guid: 64459800ac0288e43b48bc889495895d, type: 2}
   Speed: 3
 --- !u!212 &212282955986101944
 SpriteRenderer:

@@ -18,11 +18,13 @@ public class Proyectil : MonoBehaviour {
     private float nextTrailTime = 0;
     private float delayBetweenTrails = 0.1f;
 
-    private Vector3 UltimaPosicion;
+    private Transform UltimaPosicion;
 
     // Use this for initialization
     void Start () {
         trailGO.CreatePool(300);
+        Destroy(gameObject, 4);
+
     }
 
     public void Configure(Vector3 dir)
@@ -31,6 +33,7 @@ public class Proyectil : MonoBehaviour {
         float angle = Mathf.Atan2(Direccion.x, Direccion.z) * Mathf.Rad2Deg;
         transform.Rotate(0, angle, 0);
         nextTrailTime = Time.time + delayBetweenTrails;
+        Debug.Log(gameObject.transform.position);
     }
 
     // Update is called once per frame
@@ -38,19 +41,20 @@ public class Proyectil : MonoBehaviour {
         Collider[] Colliders;
         Collider[] ColliderPared;
         gameObject.transform.position += Direccion * Speed * Time.deltaTime;
-        Destroy(gameObject, 4);
 
         Colliders = Physics.OverlapSphere(gameObject.transform.position, 1, LayerDefinitions.ENEMY_MASK);
-        ColliderPared = Physics.OverlapSphere(gameObject.transform.position, 1, LayerDefinitions.INVISIBLE_OBSTACLE_LAYER);
+        ColliderPared = Physics.OverlapSphere(gameObject.transform.position, 1, LayerDefinitions.WALL_MASK);
 
         if (Colliders.Length > 0) {
             Destroy(gameObject);
         }
         else if (ColliderPared.Length > 0) {
-            UltimaPosicion =  gameObject.transform.position;
+            UltimaPosicion = gameObject.transform;
             Destroy(gameObject);
-        //    Instantiate(NuevaOnda);
-            //Instantiate(NuevaOnda);
+            nuevaonda(UltimaPosicion);
+                        
+        
+
         } else if (Time.time > nextTrailTime)
         {
             SpriteRenderer spriteRenderer = trailGO.SpawnPool(transform.position, transform.rotation).GetComponentInChildren<SpriteRenderer>();
@@ -58,5 +62,17 @@ public class Proyectil : MonoBehaviour {
             spriteRenderer.DOFade(0.0f, 0.5f);
             nextTrailTime = Time.time + delayBetweenTrails;
         }
+    }
+
+    private void nuevaonda(Transform posicion) {
+        for (int i = 0; i < 2; i++)
+        {
+
+            Instantiate(NuevaOnda, posicion.transform.position, Quaternion.Euler(45, 0, 0));
+            gameObject.transform.position += Direccion * Speed * Time.deltaTime;
+
+        }
+
+
     }
 }
