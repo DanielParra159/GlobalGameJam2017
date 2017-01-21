@@ -143,7 +143,9 @@ public sealed class Enemy : MonoBehaviour {
 #if UNITY_EDITOR
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position * minDistanceToAttack);
+
+        if (Movement.Instance != null)
+            Gizmos.DrawLine(transform.position, Vector3.Normalize(Movement.Instance.transform.position - transform.position) * minDistanceToAttack);
     }
 #endif
 

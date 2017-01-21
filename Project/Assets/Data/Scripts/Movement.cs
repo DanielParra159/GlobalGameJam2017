@@ -24,6 +24,8 @@ public sealed class Movement : MonoBehaviour {
     [SerializeField]
     private SpriteRenderer myRenderer;
     [SerializeField]
+    private Animator myAnimator;
+    [SerializeField]
     private Color colorDamage = Color.red;
 
     void Awake()
@@ -47,9 +49,10 @@ public sealed class Movement : MonoBehaviour {
 
     void FixedUpdate()
     {
-        Vector3 direccionH = new Vector3(Input.GetAxis("Horizontal"),0, Input.GetAxis("Vertical"));
+        Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),0, Input.GetAxis("Vertical"));
+        SetSpriteDir(direction.x, direction.z);
 
-        rb.MovePosition(rb.position + direccionH * velocidad *  Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + direction * velocidad *  Time.fixedDeltaTime);
         
     }
 
@@ -60,6 +63,22 @@ public sealed class Movement : MonoBehaviour {
         mySequence.Insert(0.0f, myRenderer.DOColor(colorDamage, 0.2f));
         mySequence.Insert(0.2f, myRenderer.DOColor(Color.white, 0.2f));
         myRenderer.transform.DOShakePosition(0.2f, 0.01f, 10, 90, false, false);
+    }
+
+    public void SetSpriteDir(float dirX, float dirZ) {
+        int auxDirX = 0;
+        if (dirX > 0.0f)
+            auxDirX = 1;
+        else if (dirX < 0.0f)
+            auxDirX = -1;
+
+        int auxDirZ = 0;
+        if (dirZ > 0.0f)
+            auxDirZ = -1;
+        else if (dirZ < 0.0f)
+            auxDirZ = 1;
+        myAnimator.SetInteger("DirX", auxDirX);
+        myAnimator.SetInteger("DirZ", auxDirZ);
     }
 
 }

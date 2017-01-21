@@ -662,6 +662,11 @@ Prefab:
       propertyPath: Personaje
       value: 
       objectReference: {fileID: 1932099574}
+    - target: {fileID: 20973292637539304, guid: 11758da3768aacf4f8ae8e35857425fe,
+        type: 2}
+      propertyPath: orthographic size
+      value: 1.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11758da3768aacf4f8ae8e35857425fe, type: 2}
   m_IsPrefabParent: 0
