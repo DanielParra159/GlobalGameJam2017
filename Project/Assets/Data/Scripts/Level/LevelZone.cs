@@ -7,19 +7,16 @@ public sealed class LevelZone : MonoBehaviour {
     [SerializeField]
     private EnemySpawn[] spawns;
 
-    // Use this for initialization
-    private void Start () {
-		
-	}
-
-    // Update is called once per frame
-    private void Update () {
-		
-	}
+    public void Reset () {
+        for (int i = 0; i < spawns.Length; ++i) {
+            spawns[i].SetActive(false, true);
+        }
+    }
 
     public void SetActive(bool active) {
         for (int i = 0; i < spawns.Length; ++i) {
             spawns[i].SetActive(active, true);
         }
+        Level.Instance.SetActiveLevelZone(this);
     }
 }

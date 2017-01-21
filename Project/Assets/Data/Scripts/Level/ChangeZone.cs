@@ -31,18 +31,22 @@ public sealed class ChangeZone : MonoBehaviour {
             objectsToDisable[i].SetActive(false);
         }
         Movement playerMovement = playerTransform.GetComponent<Movement>();
-        float speed = playerTransform.GetComponent<Movement>().Velocidad * 0.2f;
-        float distance = (targetPoint.position - playerTransform.position).magnitude;
+        float speed = Movement.Instance.Velocidad * 0.2f;
+        Vector3 targetPosition = targetPoint.position;
+        targetPosition.y = playerMovement.transform.position.y;
+        float distance = (targetPosition - playerTransform.position).magnitude;
         //@TODO: Solo desactivar el input
         playerMovement.enabled = false;
-        playerTransform.DOMove(targetPoint.position, distance / speed);
-        yield return new WaitForSeconds(0.5f);
+        playerTransform.DOMove(targetPosition, distance / speed);
+        yield return new WaitForSeconds(distance / speed);
         if (levelToEnable != null) {
+            MainCamara.Instance.MoveTo(targetPosition, (distance / speed)*0.5f);
+            yield return new WaitForSeconds((distance / speed) * 0.5f);
+            playerMovement.enabled = true;
             levelToEnable.SetActive(true);
             for (int i = 0; i < objectsToEnable.Length; ++i) {
                 objectsToEnable[i].SetActive(true);
             }
-            playerMovement.enabled = true;
         } else {
             Debug.Log("LevelComplete");
         }
