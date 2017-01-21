@@ -50,6 +50,10 @@ public sealed class Movement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Reset();
+    }
+
+    public void Reset() {
         smoothPosition = transform.position;
     }
 
@@ -76,6 +80,10 @@ public sealed class Movement : MonoBehaviour {
             myAnimator.SetBool("Attack", false);
         }
         SetSpriteDir(direction.x, direction.z);
+
+        if (Input.GetButton("Pause")) {
+            PauseCanvas.Instance.gameObject.SetActive(true);
+        }
     }
 
     void FixedUpdate()

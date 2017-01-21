@@ -61,4 +61,11 @@ public sealed class MainCamara : MonoBehaviour {
             FollowPlayer = true;
         });
     }
+
+    public void ForceMoveTo(Vector3 position, bool applyOffset = true) {
+        if (applyOffset)
+            position += offset;
+        transform.position = position;
+        MainCamara.Instance.FollowPlayer = false;
+    }
 }

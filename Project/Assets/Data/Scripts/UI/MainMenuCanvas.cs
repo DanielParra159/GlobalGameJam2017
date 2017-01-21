@@ -23,6 +23,7 @@ public sealed class MainMenuCanvas : MonoBehaviour {
 
     public void Active(bool active, float fadeSpeed) {
         if (active) {
+            Movement.Instance.enabled = false;
             canvasGroup.interactable = false;
             canvasGroup.alpha = 0.0f;
 
@@ -41,6 +42,8 @@ public sealed class MainMenuCanvas : MonoBehaviour {
     private void OnCompleteDeactivate() {
         gameObject.SetActive(false);
         Movement.Instance.enabled = true;
+        Movement.Instance.Reset();
+        MainCamara.Instance.FollowPlayer = true;
     }
 
     public void OnStart() {

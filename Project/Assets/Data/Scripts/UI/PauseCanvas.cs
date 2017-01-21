@@ -33,6 +33,7 @@ public sealed class PauseCanvas : MonoBehaviour {
             gameObject.SetActive(false);
         });
         MainMenuCanvas.Instance.Active(true, 0.5f);
+        Level.Instance.Reset();
     }
 
     public void OnResume() {
