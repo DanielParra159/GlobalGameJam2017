@@ -18,4 +18,6 @@ public sealed class LayerDefinitions {
     public static int PLAYER_MASK = (1 << PLAYER_LAYER);
     public static int GROUND_MASK = (1 << GROUND_LAYER);
     public static int PLAYER_AND_ENEMIES_MASK = (1 << PLAYER_LAYER) | (1 << PLAYER_LAYER);
+    public static int WALL_MASK = (1 << WALL_LAYER);
+
 }
