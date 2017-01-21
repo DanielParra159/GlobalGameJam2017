@@ -13,6 +13,9 @@ public sealed class Destructible : MonoBehaviour {
     [SerializeField]
     private GameObject explosionPrefab;
 
+    [SerializeField]
+    private AudioSource explosion;
+
     private bool exploded = false;
 
     private void Awake() {
@@ -34,6 +37,7 @@ public sealed class Destructible : MonoBehaviour {
         breakRenderer.enabled = true;
         MainCamara.Instance.Shake(1.0f);
         exploded = true;
+        explosion.Play();
     }
 
     private void OnCollisionEnter(Collision collision) {

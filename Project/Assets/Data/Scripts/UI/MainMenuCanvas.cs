@@ -11,6 +11,11 @@ public sealed class MainMenuCanvas : MonoBehaviour {
     [SerializeField]
     private CanvasGroup canvasGroup;
 
+    [SerializeField]
+    private AudioSource menuMusic;
+    [SerializeField]
+    private AudioSource gameMusic;
+
     private void Awake() {
         Instance = this;
         canvasGroup.alpha = 1.0f;
@@ -28,11 +33,19 @@ public sealed class MainMenuCanvas : MonoBehaviour {
             canvasGroup.alpha = 0.0f;
 
             gameObject.SetActive(true);
+            menuMusic.Stop();
+            menuMusic.Play();
+            menuMusic.DOFade(1.0f, fadeSpeed);
+            gameMusic.DOFade(0.0f, fadeSpeed);
+            
 
             canvasGroup.DOFade(1.0f, fadeSpeed).SetUpdate(true).OnComplete(OnCompleteActive);
         } else {
             canvasGroup.interactable = false;
             canvasGroup.DOFade(0.0f, fadeSpeed).SetUpdate(true).OnComplete(OnCompleteDeactivate);
+            menuMusic.DOFade(0.0f, fadeSpeed);
+            gameMusic.DOFade(1.0f, fadeSpeed);
+            gameMusic.Play();
         }
     }
 
