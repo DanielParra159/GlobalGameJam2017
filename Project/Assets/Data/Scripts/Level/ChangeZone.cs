@@ -11,9 +11,13 @@ public sealed class ChangeZone : MonoBehaviour {
     private Transform targetPoint;
 
     [SerializeField]
+    private LevelZone levelToDisable;
+    [SerializeField]
+    private GameObject[] objectsToDisable;
+    [SerializeField]
     private LevelZone levelToEnable;
     [SerializeField]
-    private LevelZone levelToDisable;
+    private GameObject[] objectsToEnable;
 
     private void OnTriggerEnter(Collider other) {
         StartCoroutine(ChangeZoneCoroutine(other.transform));
@@ -23,6 +27,9 @@ public sealed class ChangeZone : MonoBehaviour {
 
     private IEnumerator ChangeZoneCoroutine(Transform playerTransform) {
         levelToDisable.SetActive(false);
+        for (int i = 0; i < objectsToDisable.Length; ++i) {
+            objectsToDisable[i].SetActive(false);
+        }
         Movement playerMovement = playerTransform.GetComponent<Movement>();
         float speed = playerTransform.GetComponent<Movement>().Velocidad * 0.2f;
         float distance = (targetPoint.position - playerTransform.position).magnitude;
@@ -32,6 +39,9 @@ public sealed class ChangeZone : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         if (levelToEnable != null) {
             levelToEnable.SetActive(true);
+            for (int i = 0; i < objectsToEnable.Length; ++i) {
+                objectsToEnable[i].SetActive(true);
+            }
             playerMovement.enabled = true;
         } else {
             Debug.Log("LevelComplete");

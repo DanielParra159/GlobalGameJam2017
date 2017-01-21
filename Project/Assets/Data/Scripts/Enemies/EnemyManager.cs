@@ -14,14 +14,14 @@ public sealed class EnemyManager : MonoBehaviour {
     [SerializeField]
     private GameObject grandmotherPrefab;
 
-    private Dictionary<EnemyTypes, GameObject> enemyPrefabs = new Dictionary<EnemyTypes, GameObject>();
+    private Dictionary<EnemyIds, GameObject> enemyPrefabs = new Dictionary<EnemyIds, GameObject>();
 
     // Use this for initialization
     private void Awake () {
         Instance = this;
 
         grandmotherPrefab.CreatePool(20);
-        enemyPrefabs.Add(EnemyTypes.Grandmother, grandmotherPrefab);
+        enemyPrefabs.Add(EnemyIds.Grandmother, grandmotherPrefab);
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public sealed class EnemyManager : MonoBehaviour {
 		
 	}
 
-    public Enemy SpawnEnemy(EnemyTypes enemyType, Vector3 position, EnemySpawn spawn) {
+    public Enemy SpawnEnemy(EnemyIds enemyType, Vector3 position, EnemySpawn spawn) {
         GameObject enemyGO = enemyPrefabs[enemyType].SpawnPool(position);
         Enemy enemy = enemyGO.GetComponent<Enemy>();
         enemy.Reset(spawn);

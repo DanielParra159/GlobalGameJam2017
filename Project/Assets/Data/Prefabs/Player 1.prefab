@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 5
+  myRenderer: {fileID: 212405181894085904}
+  colorDamage: {r: 1, g: 0, b: 0, a: 1}
 --- !u!212 &212405181894085904
 SpriteRenderer:
   m_ObjectHideFlags: 1
