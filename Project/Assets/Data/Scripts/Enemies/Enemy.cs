@@ -56,9 +56,6 @@ public sealed class Enemy : MonoBehaviour {
     [SerializeField]
     private GameObject explosionPrefab;
 
-    [SerializeField]
-    private AudioSource explosion;
-
     private States currentState;
     private States CurrentState {
         get {
@@ -207,7 +204,6 @@ public sealed class Enemy : MonoBehaviour {
         MainCamara.Instance.Shake(1.0f);
         spawn.EnemyDead(this);
         explosionPrefab.SpawnPool(transform.position);
-        explosion.Play();
     }
 
 #if UNITY_EDITOR

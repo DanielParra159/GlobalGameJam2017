@@ -229,7 +229,6 @@ MonoBehaviour:
   myRenderer: {fileID: 212514810999919680}
   explosionPrefab: {fileID: 1051734008474740, guid: adae8a9d68b50134ca3b053298380d2d,
     type: 2}
-  explosion: {fileID: 82219020057038944}
   health: 1
   minDistanceToAttack: 1
   attackDistance: 0.5
