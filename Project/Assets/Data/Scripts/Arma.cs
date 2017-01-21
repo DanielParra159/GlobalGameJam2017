@@ -5,13 +5,13 @@ using UnityEngine;
 public class Arma : MonoBehaviour
 {
 
-    private float BulletFireRate = 0.1f;
+    private float BulletFireRate = 0.05f;
     [SerializeField]
     private GameObject ProjectilePrefab;
     private GameObject Personaje;
     public int NumberOfBullets = 2;
     private float ProjectileOffset = 1.3f;
-    private Vector3 Direccion;    
+    private Vector3 Direccion;
 
     private void Awake()
     {
@@ -33,11 +33,13 @@ public class Arma : MonoBehaviour
 
             Position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Position.y = 0.1f;
+
             Direccion = Vector3.Normalize((Position - Personaje.transform.position));
-            
-            Instantiate(ProjectilePrefab,
-                        Personaje.transform.position,
+
+            GameObject pro = Instantiate(ProjectilePrefab,
+                        Position,
                         Quaternion.identity);
+            pro.GetComponent<Proyectil>().Configure(Direccion);
             yield return new WaitForSeconds(BulletFireRate);
         }
 

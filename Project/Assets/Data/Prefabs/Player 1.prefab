@@ -111,9 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d56c93ab322ed4caef52cb6e9d1484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 1656128499361088, guid: 217740cb28a7f2147a4bc0a9c2256720,
+  ProjectilePrefab: {fileID: 1657584808291368, guid: 217740cb28a7f2147a4bc0a9c2256720,
     type: 2}
-  NumberOfBullets: 2
+  NumberOfBullets: 3
 --- !u!114 &114574264072710728
 MonoBehaviour:
   m_ObjectHideFlags: 1
