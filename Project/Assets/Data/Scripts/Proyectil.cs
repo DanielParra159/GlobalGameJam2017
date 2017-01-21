@@ -4,7 +4,8 @@ using Common.Utils;
 
 using DG.Tweening;
 
-public class Proyectil : MonoBehaviour {
+public class Proyectil : MonoBehaviour
+{
 
     [SerializeField]
     private GameObject trailGO;
@@ -21,7 +22,8 @@ public class Proyectil : MonoBehaviour {
     private Transform UltimaPosicion;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         trailGO.CreatePool(300);
         Destroy(gameObject, 4);
 
@@ -33,46 +35,54 @@ public class Proyectil : MonoBehaviour {
         float angle = Mathf.Atan2(Direccion.x, Direccion.z) * Mathf.Rad2Deg;
         transform.Rotate(0, angle, 0);
         nextTrailTime = Time.time + delayBetweenTrails;
-        Debug.Log(gameObject.transform.position);
     }
 
     // Update is called once per frame
-    private void Update () {
-        Collider[] Colliders;
-        Collider[] ColliderPared;
+    private void Update()
+    {
+        Collider[] colision;
         gameObject.transform.position += Direccion * Speed * Time.deltaTime;
 
-        Colliders = Physics.OverlapSphere(gameObject.transform.position, 1, LayerDefinitions.ENEMY_MASK);
-        ColliderPared = Physics.OverlapSphere(gameObject.transform.position, 1, LayerDefinitions.WALL_MASK);
-
-        if (Colliders.Length > 0) {
-            Destroy(gameObject);
-        }
-        else if (ColliderPared.Length > 0) {
-            UltimaPosicion = gameObject.transform;
-            Destroy(gameObject);
-            nuevaonda(UltimaPosicion);
-                        
-        
-
-        } else if (Time.time > nextTrailTime)
+        if (Time.time > nextTrailTime)
         {
             SpriteRenderer spriteRenderer = trailGO.SpawnPool(transform.position, transform.rotation).GetComponentInChildren<SpriteRenderer>();
             spriteRenderer.DOFade(1.0f, 0.0f);
             spriteRenderer.DOFade(0.0f, 0.5f);
             nextTrailTime = Time.time + delayBetweenTrails;
         }
+
     }
+    
+        private void nuevaonda(ContactPoint posicion) {
+            for (int i = 0; i < 2; i++)
+            {
 
-    private void nuevaonda(Transform posicion) {
-        for (int i = 0; i < 2; i++)
-        {
-
-            Instantiate(NuevaOnda, posicion.transform.position, Quaternion.Euler(45, 0, 0));
-            gameObject.transform.position += Direccion * Speed * Time.deltaTime;
+               GameObject instanciado = Instantiate(NuevaOnda, posicion.point, Quaternion.identity);
+                instanciado.GetComponent<Proyectil>().Configure(Direccion);
 
         }
 
 
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerDefinitions.ENEMY_LAYER) {
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.layer == LayerDefinitions.WALL_LAYER) {
+            Destroy(gameObject);
+
+            ContactPoint contact = collision.contacts[0];
+
+            Direccion = 2 * (Vector3.Dot(Direccion, Vector3.Normalize(contact.normal))) * Vector3.Normalize(contact.normal) - Direccion; //Following formula  v' = 2 * (v . n) * n - v
+
+            Direccion *= -1; //Had to multiply everything by -1. Don't know why, but it was all backwards.
+            nuevaonda(contact);
+
+        }
+
+
+    }
+
 }
