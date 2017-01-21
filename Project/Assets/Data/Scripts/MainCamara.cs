@@ -72,8 +72,10 @@ public sealed class MainCamara : MonoBehaviour {
     }
 
     public void Shake(float duration) {
-        if (shake != null)
+        if (shake != null) {
             shake.Kill(false);
+            transform.GetChild(0).position = transform.position;
+        }
         shake = transform.GetChild(0).DOShakePosition(duration, 1, 10, 90f);
     }
 }
