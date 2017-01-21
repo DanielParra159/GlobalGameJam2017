@@ -28,6 +28,16 @@ public sealed class Movement : MonoBehaviour {
     [SerializeField]
     private Color colorDamage = Color.red;
 
+    private Vector3 smoothPosition;
+    public Vector3 SmoothPosition {
+        get {
+            return smoothPosition;
+        }
+    }
+
+    int lastDirZ = 0;
+    int lastDirX = 0;
+
     void Awake()
     {
         Instance = this;
@@ -36,7 +46,7 @@ public sealed class Movement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        smoothPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -53,7 +63,7 @@ public sealed class Movement : MonoBehaviour {
         SetSpriteDir(direction.x, direction.z);
 
         rb.MovePosition(rb.position + direction * velocidad *  Time.fixedDeltaTime);
-        
+        smoothPosition = Vector3.Lerp(smoothPosition, rb.position, (rb.position-smoothPosition).magnitude * 20.0f* Time.fixedDeltaTime);
     }
 
     public void DoDamage(int damage, Vector3 damageDir) {
@@ -77,8 +87,15 @@ public sealed class Movement : MonoBehaviour {
             auxDirZ = -1;
         else if (dirZ < 0.0f)
             auxDirZ = 1;
-        myAnimator.SetInteger("DirX", auxDirX);
-        myAnimator.SetInteger("DirZ", auxDirZ);
+
+        if (auxDirX != lastDirX) {
+            myAnimator.SetInteger("DirX", auxDirX);
+            lastDirX = auxDirX;
+        }
+        if (auxDirZ != lastDirZ) {
+            myAnimator.SetInteger("DirZ", auxDirZ);
+            lastDirZ = auxDirZ;
+        }
     }
 
 }
