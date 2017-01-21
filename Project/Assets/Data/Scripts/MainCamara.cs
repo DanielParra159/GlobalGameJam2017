@@ -12,6 +12,16 @@ public sealed class MainCamara : MonoBehaviour {
     [SerializeField]
     private Vector3 offset = new Vector3(0.0f, 5.0f, 0.0f);
 
+    private bool followPlayer = true;
+    public bool FollowPlayer {
+        get {
+            return followPlayer;
+        }
+        set {
+            followPlayer = value;
+        }
+    }
+
     /*[SerializeField]
     private float speed = 20.0f;*/
 
@@ -31,13 +41,24 @@ public sealed class MainCamara : MonoBehaviour {
     void LateUpdate () {
 
         //Vector3 playerPosition = Movement.Instance.SmoothPosition + offset;
-        //Vector3 playerPosition = Movement.Instance.SmoothPosition + offset;
+        if (followPlayer) {
+            Vector3 playerPosition = Movement.Instance.SmoothPosition + offset;
+            gameObject.transform.position = playerPosition;
+        }
         //camara.transform.position = Vector3.Lerp(camara.transform.position, playerPosition, (playerPosition - camara.transform.position).magnitude * 0.5f * speed * Time.deltaTime);
         //if ((playerPosition - camara.transform.position).sqrMagnitude > 0.1f)
         //    camara.transform.position += (playerPosition - camara.transform.position).normalized * (playerPosition - camara.transform.position).magnitude* speed * Time.deltaTime;
         //transform.position = Vector3.SmoothDamp(transform.position, playerPosition, ref velocity, smoothTime);
         //camara.transform.DOMove(playerPosition + offset, 0.2f);
-        //gameObject.transform.position = playerPosition;
         //camara.transform.DOMove(playerPosition + offset, 10/(playerPosition - camara.transform.position).magnitude);
+    }
+
+    public void MoveTo(Vector3 position, float time, bool applyOffset = true) {
+        if (applyOffset)
+            position += offset;
+        MainCamara.Instance.FollowPlayer = false;
+        transform.DOMove(position, time).OnComplete(()=> {
+            FollowPlayer = true;
+        });
     }
 }

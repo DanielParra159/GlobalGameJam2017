@@ -566,11 +566,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawns: []
---- !u!1 &1932099574 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1459041527695876, guid: 767d14ed54454cc4aa8d115d795859a8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1268922808}
 --- !u!4 &1932099579 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4702635646886956, guid: 767d14ed54454cc4aa8d115d795859a8,
@@ -681,7 +676,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1999123799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.83, y: 0, z: 0}
+  m_LocalPosition: {x: 1.46, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 138234286}
@@ -725,43 +720,6 @@ Prefab:
     - target: {fileID: 4490454661875700, guid: 11758da3768aacf4f8ae8e35857425fe, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1669806603627118, guid: 11758da3768aacf4f8ae8e35857425fe, type: 2}
-      propertyPath: m_Name
-      value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 114075267553346658, guid: 11758da3768aacf4f8ae8e35857425fe,
-        type: 2}
-      propertyPath: Personaje
-      value: 
-      objectReference: {fileID: 1932099574}
-    - target: {fileID: 20973292637539304, guid: 11758da3768aacf4f8ae8e35857425fe,
-        type: 2}
-      propertyPath: orthographic size
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114075267553346658, guid: 11758da3768aacf4f8ae8e35857425fe,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4490454661875700, guid: 11758da3768aacf4f8ae8e35857425fe, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4490454661875700, guid: 11758da3768aacf4f8ae8e35857425fe, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114075267553346658, guid: 11758da3768aacf4f8ae8e35857425fe,
-        type: 2}
-      propertyPath: smoothTime
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114075267553346658, guid: 11758da3768aacf4f8ae8e35857425fe,
-        type: 2}
-      propertyPath: offset.y
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11758da3768aacf4f8ae8e35857425fe, type: 2}
