@@ -2,15 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arma : MonoBehaviour {
+public class Arma : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private float BulletFireRate = 0.1f;
+    [SerializeField]
+    private GameObject ProjectilePrefab;
+    private GameObject Personaje;
+    public int NumberOfBullets = 2;
+    private float ProjectileOffset = 1.3f;
+    private Vector3 Direccion;    
+
+    private void Awake()
+    {
+        Personaje = gameObject.gameObject;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("mouse 0"))
+            StartCoroutine(Shoot());
+    }
+
+    IEnumerator Shoot()
+    {
+        Vector3 Position = Vector3.zero;
+
+        for (int i = 0; i < NumberOfBullets; i++)
+        {
+
+            Position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Position.y = 0.1f;
+            Direccion = Vector3.Normalize((Position - Personaje.transform.position));
+            
+            Instantiate(ProjectilePrefab,
+                        Personaje.transform.position,
+                        Quaternion.identity);
+            yield return new WaitForSeconds(BulletFireRate);
+        }
+
+    }
 }

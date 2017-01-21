@@ -10,7 +10,6 @@ public sealed class Movement : MonoBehaviour {
     }
     [SerializeField]
     private float velocidad;
-    private BoxCollider Cajita;
 
     public float Velocidad
     {
@@ -27,7 +26,6 @@ public sealed class Movement : MonoBehaviour {
     {
         Instance = this;
         rb = gameObject.GetComponent<Rigidbody>();
-        Cajita = gameObject.GetComponent<BoxCollider>();
     } 
 
     // Use this for initialization
