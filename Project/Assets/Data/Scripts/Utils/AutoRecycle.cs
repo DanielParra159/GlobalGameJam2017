@@ -7,10 +7,21 @@ namespace Common.Utils
         [SerializeField]
         private float delay = 1.0f;
 
+        private float timeToRecycle;
+
         // Use this for initialization
-        private void Start()
+        /*private void Start()
         {
             Invoke("Recycle", delay);
+        }*/
+
+        private void OnEnable() {
+            timeToRecycle = Time.time + delay;
+        }
+
+        private void Update() {
+            if (Time.time > timeToRecycle)
+                Recycle();
         }
 
         private void Recycle()
