@@ -95,6 +95,8 @@ public sealed class Enemy : MonoBehaviour {
         myTransform = gameObject.transform;
         myRigidbody = gameObject.GetComponent<Rigidbody>();
         myNavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+
+        myRenderer.transform.SetParent(null);
     }
 
     // Update is called once per frame
