@@ -86,9 +86,9 @@ public sealed class Enemy : MonoBehaviour {
     private int health = 5;
     private int currentHealth = 5;
     [SerializeField]
-    private float minDistanceToAttack = 1.0f;
+    private float minDistanceToAttack = 0.5f;
     [SerializeField]
-    private float attackDistance = 1.0f;
+    private float attackDistance = 0.5f;
     [SerializeField]
     private int damage = 1;
     [SerializeField]

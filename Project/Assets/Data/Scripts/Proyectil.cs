@@ -40,6 +40,8 @@ public class Proyectil : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        gameObject.transform.position += Direccion * Speed * Time.deltaTime;
+
         Collider[] colision = Physics.OverlapSphere(gameObject.transform.position, 0.5f,LayerDefinitions.ENEMY_MASK);
         for (int i = 0; i < colision.Length; i++) {
             Enemy enemigo = colision[i].GetComponent<Enemy>();
@@ -47,8 +49,6 @@ public class Proyectil : MonoBehaviour
             enemigo.DoDamage(1,Direccion);
             }
         }
-
-        gameObject.transform.position += Direccion * Speed * Time.deltaTime;
 
         if (Time.time > nextTrailTime)
         {
@@ -63,8 +63,11 @@ public class Proyectil : MonoBehaviour
         }
 
     }
+
     
-        private void nuevaonda(ContactPoint posicion) {
+    
+
+     private void nuevaonda(ContactPoint posicion) {
             for (int i = 0; i < 2; i++)
             {
 

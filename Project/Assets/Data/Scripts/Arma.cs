@@ -42,7 +42,7 @@ public class Arma : MonoBehaviour
             Direccion = Vector3.Normalize((Position - Personaje.transform.position));
 
             GameObject pro = Instantiate(ProjectilePrefab,
-                        Personaje.transform.position,
+                        new Vector3(Personaje.transform.position.x, Personaje.transform.position.y + 1, Personaje.transform.position.z),
                         Quaternion.identity);
                 
             pro.GetComponent<Proyectil>().Configure(Direccion);

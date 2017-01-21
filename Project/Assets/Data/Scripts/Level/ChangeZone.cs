@@ -31,7 +31,7 @@ public sealed class ChangeZone : MonoBehaviour {
             objectsToDisable[i].SetActive(false);
         }
         Movement playerMovement = playerTransform.GetComponent<Movement>();
-        float speed = Movement.Instance.Velocidad * 0.2f;
+        float speed = Movement.Instance.Velocidad * 1f;
         Vector3 targetPosition = targetPoint.position;
         targetPosition.y = playerMovement.transform.position.y;
         float distance = (targetPosition - playerTransform.position).magnitude;
