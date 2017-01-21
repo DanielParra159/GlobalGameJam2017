@@ -22,6 +22,8 @@ public sealed class MainCamara : MonoBehaviour {
         }
     }
 
+    private Tweener shake;
+
     /*[SerializeField]
     private float speed = 20.0f;*/
 
@@ -67,5 +69,11 @@ public sealed class MainCamara : MonoBehaviour {
             position += offset;
         transform.position = position;
         MainCamara.Instance.FollowPlayer = false;
+    }
+
+    public void Shake(float duration) {
+        if (shake != null)
+            shake.Kill(false);
+        shake = transform.GetChild(0).DOShakePosition(duration, 1, 10, 90f);
     }
 }
