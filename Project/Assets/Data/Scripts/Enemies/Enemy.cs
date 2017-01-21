@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 using DG.Tweening;
+using Common.Utils;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Rigidbody))]
@@ -52,6 +53,12 @@ public sealed class Enemy : MonoBehaviour {
 
     private EnemySpawn spawn;
 
+    [SerializeField]
+    private GameObject explosionPrefab;
+
+    [SerializeField]
+    private AudioSource explosion;
+
     private States currentState;
     private States CurrentState {
         get {
@@ -99,6 +106,7 @@ public sealed class Enemy : MonoBehaviour {
 
     // Use this for initialization
     private void Awake () {
+        explosionPrefab.CreatePool(50);
         myGameObject = gameObject;
         myTransform = gameObject.transform;
         myRigidbody = gameObject.GetComponent<Rigidbody>();
@@ -106,6 +114,13 @@ public sealed class Enemy : MonoBehaviour {
         myAnimator = myRenderer.GetComponent<Animator>();
 
         myRenderer.transform.SetParent(null);
+    }
+
+    private void OnDisable() {
+        myRenderer.gameObject.SetActive(false);
+    }
+    private void OnEnable() {
+        myRenderer.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -189,7 +204,10 @@ public sealed class Enemy : MonoBehaviour {
 
 
     private void Die() {
+        MainCamara.Instance.Shake(1.0f);
         spawn.EnemyDead(this);
+        explosionPrefab.SpawnPool(transform.position);
+        explosion.Play();
     }
 
 #if UNITY_EDITOR
