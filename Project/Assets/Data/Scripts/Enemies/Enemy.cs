@@ -62,11 +62,12 @@ public sealed class Enemy : MonoBehaviour {
                 case States.Walk:
                     myNavMeshAgent.destination = Movement.Instance.transform.position;
                     myNavMeshAgent.Resume();
+                    SetSpriteDir(transform.forward.x, transform.forward.z);
                     break;
                 case States.Attack:
                     //Trigger anim
                     //myNavMeshAgent.destination = MyTransform.position;
-                    //@TODO: Attack se llama desde el animator
+                    myAnimator.SetBool("Attack", true);
                     Attack();
                     myNavMeshAgent.Stop();
                     break;
@@ -89,12 +90,20 @@ public sealed class Enemy : MonoBehaviour {
     [SerializeField]
     private Color colorDamage = Color.red;
 
+    [SerializeField]
+    private Animator myAnimator;
+
+    int lastDirZ = 0;
+    int lastDirX = 0;
+    bool moving = false;
+
     // Use this for initialization
     private void Awake () {
         myGameObject = gameObject;
         myTransform = gameObject.transform;
         myRigidbody = gameObject.GetComponent<Rigidbody>();
         myNavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+        myAnimator = myRenderer.GetComponent<Animator>();
 
         myRenderer.transform.SetParent(null);
     }
@@ -103,14 +112,40 @@ public sealed class Enemy : MonoBehaviour {
     private void Update () {
         switch (currentState) {
             case States.Walk:
+                moving = true;
                 myNavMeshAgent.destination = Movement.Instance.transform.position;
+                SetSpriteDir(transform.forward.x, transform.forward.z);
                 if ((myNavMeshAgent.destination - MyTransform.position).sqrMagnitude < minDistanceToAttack) {
                     //Atacamos
                     CurrentState = States.Attack;
                 }
                 break;
             case States.Attack:
+                moving = false;
                 break;
+        }
+    }
+
+    public void SetSpriteDir(float dirX, float dirZ) {
+        int auxDirX = 0;
+        if (dirX > 0.0f)
+            auxDirX = 1;
+        else if (dirX < 0.0f)
+            auxDirX = -1;
+
+        int auxDirZ = 0;
+        if (dirZ > 0.0f)
+            auxDirZ = -1;
+        else if (dirZ < 0.0f)
+            auxDirZ = 1;
+
+        if (auxDirX != lastDirX) {
+            myAnimator.SetInteger("DirX", auxDirX);
+            lastDirX = auxDirX;
+        }
+        if (auxDirZ != lastDirZ) {
+            myAnimator.SetInteger("DirZ", auxDirZ);
+            lastDirZ = auxDirZ;
         }
     }
 
@@ -132,6 +167,7 @@ public sealed class Enemy : MonoBehaviour {
 
     //Se llama desde el animator
     public void Walk() {
+        myAnimator.SetBool("Attack", false);
         CurrentState = States.Walk;
     }
 
