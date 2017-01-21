@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 [RequireComponent(typeof(Rigidbody))]
-public class Movement : MonoBehaviour {
+public sealed class Movement : MonoBehaviour {
+    public static Movement Instance {
+        get;
+        private set;
+    }
     [SerializeField]
     private float velocidad;
     private BoxCollider Cajita;
@@ -21,6 +25,7 @@ public class Movement : MonoBehaviour {
     
     void Awake()
     {
+        Instance = this;
         rb = gameObject.GetComponent<Rigidbody>();
         Cajita = gameObject.GetComponent<BoxCollider>();
     } 
@@ -44,6 +49,10 @@ public class Movement : MonoBehaviour {
 
         rb.MovePosition(rb.position + direccionH * velocidad *  Time.fixedDeltaTime);
         
+    }
+
+    public void DoDamage(int damage) {
+
     }
 
 }

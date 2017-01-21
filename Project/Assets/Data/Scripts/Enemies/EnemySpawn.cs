@@ -7,7 +7,7 @@ using Common.Utils;
 public sealed class EnemySpawn : MonoBehaviour {
 
     [SerializeField]
-    private EnemyTypes[] enemiesToSpawn;
+    private EnemyIds[] enemiesToSpawn;
     [SerializeField]
     private int[] totalEnemies;
     private int[] numEnemiesSpawned;
