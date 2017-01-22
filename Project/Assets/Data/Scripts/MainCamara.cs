@@ -43,7 +43,7 @@ public sealed class MainCamara : MonoBehaviour {
     //private Vector3 velocity = Vector3.zero;
     // Update is called once per frame
     void LateUpdate () {
-        offset.z = offsetZ;
+        transform.GetChild(0).position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + offsetZ);
 
         //Vector3 playerPosition = Movement.Instance.SmoothPosition + offset;
         if (followPlayer) {

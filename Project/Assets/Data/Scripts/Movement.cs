@@ -53,6 +53,10 @@ public sealed class Movement : MonoBehaviour {
         Reset();
     }
 
+    private void OnDisable() {
+        smoothPosition = transform.position;
+    }
+
     public void Reset() {
         smoothPosition = transform.position;
     }
@@ -81,9 +85,9 @@ public sealed class Movement : MonoBehaviour {
         }
         SetSpriteDir(direction.x, direction.z);
 
-        if (Input.GetButton("Pause")) {
+        /*if (Input.GetButton("Pause")) {
             PauseCanvas.Instance.gameObject.SetActive(true);
-        }
+        }*/
     }
 
     void FixedUpdate()

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a355307c8e4c40044ac5c9719a7532b8
+timeCreated: 1485084959
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: FT AcidTest
+  fontNames:
+  - FT AcidTest
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

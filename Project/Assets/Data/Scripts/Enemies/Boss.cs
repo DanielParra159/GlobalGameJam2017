@@ -25,6 +25,7 @@ public sealed class Boss : Enemy {
         for (int i = 0; i < gameMusics.Length; ++i) {
             gameMusics[i].DOFade(0.0f, 0.5f);
         }
+        bossMusic.Play();
         bossMusic.DOFade(1.0f, 0.5f);
 
     }
@@ -43,7 +44,7 @@ public sealed class Boss : Enemy {
         mySequence.Insert(0.0f, myRenderer.DOColor(Color.red, 0.2f));
         mySequence.Insert(0.2f, myRenderer.DOColor(Color.white, 0.2f));
         if (currentHealth <= 0) {
-
+            Die();  
         } else {
             damge.Play();
         }
@@ -56,7 +57,7 @@ public sealed class Boss : Enemy {
         die.Play();
 
         for (int i = 0; i < disableOnDead.Length; ++i) {
-            disableOnDead[i].SetActive(true);
+            disableOnDead[i].SetActive(false);
         }
 
         gameObject.SetActive(false);
