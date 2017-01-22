@@ -32,7 +32,6 @@ public sealed class Level : MonoBehaviour {
     }
 
     public void Reset() {
-        currentLevelZone.Reset();
         initialLevelZone.SetActive(true);
         gameMusicDura.Stop();
         Movement.Instance.transform.position = playerSpawn.position;

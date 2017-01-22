@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eef245e65c9e8b458a252c532c18b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 5
+  velocidad: 2
   myRenderer: {fileID: 212405181894085904}
   myAnimator: {fileID: 95485496450399924}
   colorDamage: {r: 1, g: 0, b: 0, a: 1}

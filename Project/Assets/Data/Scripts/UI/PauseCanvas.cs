@@ -11,7 +11,7 @@ public sealed class PauseCanvas : MonoBehaviour {
     [SerializeField]
     private CanvasGroup canvasGroup;
 
-    private void Awake() {
+    public void Awake() {
         Instance = this;
         canvasGroup.DOFade(0.0f, 0.0f);
         gameObject.SetActive(false);

@@ -20,6 +20,7 @@ public sealed class EnemySpawn : MonoBehaviour {
 
     private List<Enemy> enemiesSpawned = new List<Enemy>();
 
+
     [SerializeField]
     private float spawnRadius = 5.0f;
 
