@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour {
     private Color colorDamage = Color.red;
 
     [SerializeField]
-    private Animator myAnimator;
+    protected Animator myAnimator;
 
     [SerializeField]
     private AudioSource[] deathAudio;
@@ -104,8 +104,10 @@ public class Enemy : MonoBehaviour {
     int lastDirX = 0;
     bool moving = false;
 
+    protected bool removeParent = true;
+
     // Use this for initialization
-    private void Awake () {
+    protected virtual void Awake () {
         explosionPrefab.CreatePool(50);
         myGameObject = gameObject;
         myTransform = gameObject.transform;
@@ -115,7 +117,8 @@ public class Enemy : MonoBehaviour {
 
         deathAudio = GameObject.FindGameObjectWithTag("AudioYayas").GetComponentsInChildren<AudioSource>();
 
-        myRenderer.transform.SetParent(null);
+        if (removeParent)
+            myRenderer.transform.SetParent(null);
     }
 
     private void OnDisable() {

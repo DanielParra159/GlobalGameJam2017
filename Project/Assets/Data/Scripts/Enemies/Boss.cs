@@ -19,7 +19,24 @@ public sealed class Boss : Enemy {
     [SerializeField]
     private GameObject[] disableOnDead;
 
-    private void OnEnable () {
+    [SerializeField]
+    private EnemySpawn[] spawns;
+
+    [SerializeField]
+    private float timeBetweenAttacks = 5.0f;
+    private float nextAttack = 0.0f;
+
+    [SerializeField]
+    private GameObject dentadura;
+
+    protected override void Awake() {
+        removeParent = false;
+        base.Awake();
+
+        dentadura.CreatePool(5);
+    }
+
+    private void OnEnable() {
         currentHealth = health;
 
         for (int i = 0; i < gameMusics.Length; ++i) {
@@ -28,11 +45,25 @@ public sealed class Boss : Enemy {
         bossMusic.Play();
         bossMusic.DOFade(1.0f, 0.5f);
 
+        nextAttack = Time.time + timeBetweenAttacks;
+
     }
 
-    private void Update () {
-		
-	}
+    private void Update() {
+
+        if (Time.time > nextAttack) {
+            if (currentHealth < health * 0.5f) {
+                if (Random.Range(0.0f, 1.0f) < 0.99f) {
+                    myAnimator.SetTrigger("Attack2");
+                } else {
+                    myAnimator.SetTrigger("Attack1");
+                }
+            } else {
+                myAnimator.SetTrigger("Attack1");
+            }
+            nextAttack = Time.time + timeBetweenAttacks;
+        }
+    }
 
     public override void DoDamage(int damage, Vector3 damageDir) {
         /*if (Vector3.Dot(damageDir, new Vector3(0, 0 - 1)) > 0) {
@@ -44,7 +75,7 @@ public sealed class Boss : Enemy {
         mySequence.Insert(0.0f, myRenderer.DOColor(Color.red, 0.2f));
         mySequence.Insert(0.2f, myRenderer.DOColor(Color.white, 0.2f));
         if (currentHealth <= 0) {
-            Die();  
+            Die();
         } else {
             damge.Play();
         }
@@ -61,5 +92,15 @@ public sealed class Boss : Enemy {
         }
 
         gameObject.SetActive(false);
+    }
+
+    public void Attack1() {
+        for (int i = 0; i < spawns.Length; ++i) {
+            spawns[i].SetActive(true, false);
+        }
+    }
+
+    public void Attack2() {
+        dentadura.SpawnPool(MyTransform.position);
     }
 }

@@ -581,22 +581,6 @@ Prefab:
       propertyPath: disableOnDead.Array.data[2]
       value: 
       objectReference: {fileID: 1299211964}
-    - target: {fileID: 1689080814800984, guid: 2a4a2e1cf0e90e843b97428caee2d0fb, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4986314289010922, guid: 2a4a2e1cf0e90e843b97428caee2d0fb, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2.189447
-      objectReference: {fileID: 0}
-    - target: {fileID: 4986314289010922, guid: 2a4a2e1cf0e90e843b97428caee2d0fb, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2.1894472
-      objectReference: {fileID: 0}
-    - target: {fileID: 4986314289010922, guid: 2a4a2e1cf0e90e843b97428caee2d0fb, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 2.1894472
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a4a2e1cf0e90e843b97428caee2d0fb, type: 2}
   m_IsPrefabParent: 0

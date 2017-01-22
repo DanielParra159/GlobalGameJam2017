@@ -7,7 +7,7 @@ public class LevelComplete : MonoBehaviour {
 
 
 
-    private void Menu() {
+    public void Menu() {
         SceneManager.LoadScene("Game");
     }
 }

@@ -77,6 +77,7 @@ public sealed class EnemySpawn : MonoBehaviour {
         if (active) {
             for (int i = 0; i < timeBetweenSpawns.Length; ++i) {
                 nextSpawnTime[i] = Time.time + delayToStartSpawn[i];
+                numEnemiesSpawned[i] = 0;
             }
         }
         if (killSpawnedEnemies) {
