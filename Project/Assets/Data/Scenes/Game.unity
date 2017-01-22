@@ -184,6 +184,11 @@ Prefab:
       propertyPath: m_Name
       value: Farola (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 65809726343928860, guid: 71b778b496fb1cf47ba49ecddb8b751a,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
   m_IsPrefabParent: 0
@@ -642,8 +647,8 @@ MonoBehaviour:
   objectsToDisable: []
   levelToEnable: {fileID: 10621424}
   objectsToEnable: []
-  audioToEnable: {fileID: 838171634}
-  audioToDisable: {fileID: 477265811}
+  audioToEnable: {fileID: 109883797}
+  audioToDisable: {fileID: 109883797}
 --- !u!65 &138234288
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -717,6 +722,11 @@ Prefab:
     - target: {fileID: 1324981483340536, guid: 02fd2e89337f84a49b09c678042fe0de, type: 2}
       propertyPath: m_Name
       value: Moto (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 65615189798582354, guid: 02fd2e89337f84a49b09c678042fe0de,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02fd2e89337f84a49b09c678042fe0de, type: 2}
@@ -1064,6 +1074,11 @@ Prefab:
       propertyPath: m_Name
       value: Farola (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 65809726343928860, guid: 71b778b496fb1cf47ba49ecddb8b751a,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
   m_IsPrefabParent: 0
@@ -1115,6 +1130,11 @@ Prefab:
     - target: {fileID: 4876977865031022, guid: 40759d3e6b7931b4891ebdb27b1c9b5b, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65238610314189208, guid: 40759d3e6b7931b4891ebdb27b1c9b5b,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40759d3e6b7931b4891ebdb27b1c9b5b, type: 2}
@@ -1309,6 +1329,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 65864045918505356, guid: c392fc74c8ae8fc438cfb75003743b9e,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c392fc74c8ae8fc438cfb75003743b9e, type: 2}
   m_IsPrefabParent: 0
@@ -1366,6 +1391,11 @@ Prefab:
     - target: {fileID: 1324981483340536, guid: 02fd2e89337f84a49b09c678042fe0de, type: 2}
       propertyPath: m_Name
       value: Moto (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 65615189798582354, guid: 02fd2e89337f84a49b09c678042fe0de,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02fd2e89337f84a49b09c678042fe0de, type: 2}
@@ -1743,6 +1773,11 @@ Prefab:
       propertyPath: m_Name
       value: Buzon (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 65864045918505356, guid: c392fc74c8ae8fc438cfb75003743b9e,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c392fc74c8ae8fc438cfb75003743b9e, type: 2}
   m_IsPrefabParent: 0
@@ -1912,6 +1947,11 @@ Prefab:
         type: 2}
       propertyPath: m_FlipX
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65238610314189208, guid: 40759d3e6b7931b4891ebdb27b1c9b5b,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40759d3e6b7931b4891ebdb27b1c9b5b, type: 2}
@@ -2178,6 +2218,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 65809726343928860, guid: 71b778b496fb1cf47ba49ecddb8b751a,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
   m_IsPrefabParent: 0
@@ -2257,7 +2302,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bc5eb4e5e2e83cf4b88bfac4009f3bac, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2608,6 +2653,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 65615189798582354, guid: 02fd2e89337f84a49b09c678042fe0de,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02fd2e89337f84a49b09c678042fe0de, type: 2}
   m_IsPrefabParent: 0
@@ -2702,6 +2752,11 @@ Prefab:
     - target: {fileID: 1823951669378984, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
       propertyPath: m_Name
       value: Farola (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 65809726343928860, guid: 71b778b496fb1cf47ba49ecddb8b751a,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
@@ -2936,6 +2991,11 @@ Prefab:
     - target: {fileID: 4784422868522088, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 65809726343928860, guid: 71b778b496fb1cf47ba49ecddb8b751a,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
@@ -3333,6 +3393,115 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1181522959}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1202798652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1202798654}
+  - component: {fileID: 1202798653}
+  m_Layer: 0
+  m_Name: Seleccion (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1202798653
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1202798652}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c8fc3aa8881b8724ca8faf1ec878e818, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &1202798654
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1202798652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1207152918 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20973292637539304, guid: 11758da3768aacf4f8ae8e35857425fe,
@@ -3593,7 +3762,7 @@ Transform:
   m_GameObject: {fileID: 1299211964}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 2822, y: 6397.0015, z: -60.000164}
-  m_LocalScale: {x: 286.69043, y: 99.99992, z: 99.99992}
+  m_LocalScale: {x: 1643.1825, y: 99.99992, z: 99.99992}
   m_Children: []
   m_Father: {fileID: 628262759}
   m_RootOrder: 8
@@ -3788,6 +3957,11 @@ Prefab:
       propertyPath: m_Name
       value: Farola (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 65809726343928860, guid: 71b778b496fb1cf47ba49ecddb8b751a,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
   m_IsPrefabParent: 0
@@ -3838,6 +4012,11 @@ Prefab:
     - target: {fileID: 1823951669378984, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
       propertyPath: m_Name
       value: Farola (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 65809726343928860, guid: 71b778b496fb1cf47ba49ecddb8b751a,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
@@ -4014,6 +4193,11 @@ Prefab:
         type: 2}
       propertyPath: m_FlipX
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65238610314189208, guid: 40759d3e6b7931b4891ebdb27b1c9b5b,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40759d3e6b7931b4891ebdb27b1c9b5b, type: 2}
@@ -4529,6 +4713,11 @@ Prefab:
       propertyPath: m_Name
       value: Moto (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 65615189798582354, guid: 02fd2e89337f84a49b09c678042fe0de,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02fd2e89337f84a49b09c678042fe0de, type: 2}
   m_IsPrefabParent: 0
@@ -4595,6 +4784,11 @@ Prefab:
         type: 2}
       propertyPath: m_FlipY
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65238610314189208, guid: 40759d3e6b7931b4891ebdb27b1c9b5b,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40759d3e6b7931b4891ebdb27b1c9b5b, type: 2}
@@ -4756,6 +4950,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 65864045918505356, guid: c392fc74c8ae8fc438cfb75003743b9e,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c392fc74c8ae8fc438cfb75003743b9e, type: 2}
   m_IsPrefabParent: 0
@@ -4806,6 +5005,11 @@ Prefab:
     - target: {fileID: 1823951669378984, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
       propertyPath: m_Name
       value: Farola (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 65809726343928860, guid: 71b778b496fb1cf47ba49ecddb8b751a,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
@@ -5108,6 +5312,11 @@ Prefab:
       propertyPath: m_Name
       value: Banco (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 65238610314189208, guid: 40759d3e6b7931b4891ebdb27b1c9b5b,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40759d3e6b7931b4891ebdb27b1c9b5b, type: 2}
   m_IsPrefabParent: 0
@@ -5207,6 +5416,11 @@ Prefab:
     - target: {fileID: 1823951669378984, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
       propertyPath: m_Name
       value: Farola (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 65809726343928860, guid: 71b778b496fb1cf47ba49ecddb8b751a,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71b778b496fb1cf47ba49ecddb8b751a, type: 2}
@@ -5526,6 +5740,11 @@ Prefab:
       propertyPath: m_Name
       value: Buzon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 65864045918505356, guid: c392fc74c8ae8fc438cfb75003743b9e,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 6.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c392fc74c8ae8fc438cfb75003743b9e, type: 2}
   m_IsPrefabParent: 0
@@ -5601,8 +5820,8 @@ MonoBehaviour:
   objectsToDisable: []
   levelToEnable: {fileID: 1546041068}
   objectsToEnable: []
-  audioToEnable: {fileID: 109883797}
-  audioToDisable: {fileID: 838171634}
+  audioToEnable: {fileID: 0}
+  audioToDisable: {fileID: 0}
 --- !u!1001 &2087084472
 Prefab:
   m_ObjectHideFlags: 0
@@ -5709,7 +5928,12 @@ Prefab:
         type: 2}
       propertyPath: gameMusic
       value: 
-      objectReference: {fileID: 838171634}
+      objectReference: {fileID: 109883797}
+    - target: {fileID: 114044431055699596, guid: dedd0808fcc3cf64e93441472520ba0c,
+        type: 2}
+      propertyPath: select
+      value: 
+      objectReference: {fileID: 1202798653}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dedd0808fcc3cf64e93441472520ba0c, type: 2}
   m_IsPrefabParent: 0

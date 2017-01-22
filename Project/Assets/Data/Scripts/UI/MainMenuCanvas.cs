@@ -16,6 +16,9 @@ public sealed class MainMenuCanvas : MonoBehaviour {
     [SerializeField]
     private AudioSource gameMusic;
 
+    [SerializeField]
+    private AudioSource select;
+
     private void Awake() {
         Instance = this;
         canvasGroup.alpha = 1.0f;
@@ -60,10 +63,12 @@ public sealed class MainMenuCanvas : MonoBehaviour {
     }
 
     public void OnStart() {
+        select.Play();
         Active(false, 0.5f);
     }
 
     public void OnExit() {
+        select.Play();
         Application.Quit();
     }
 

@@ -40,20 +40,27 @@ public sealed class Boss : Enemy {
         currentHealth = health;
 
         for (int i = 0; i < gameMusics.Length; ++i) {
-            gameMusics[i].DOFade(0.0f, 0.5f);
+            gameMusics[i].DOFade(0.0f, 1.0f);
         }
-        bossMusic.Play();
-        bossMusic.DOFade(1.0f, 0.5f);
+
+        StartCoroutine(retrasoMusica());
 
         nextAttack = Time.time + timeBetweenAttacks;
 
+    }
+
+    private IEnumerator retrasoMusica() {
+        yield return new WaitForSeconds(1.0f);
+
+        bossMusic.Play();
+        bossMusic.DOFade(1.0f, 1.0f);
     }
 
     private void Update() {
 
         if (Time.time > nextAttack) {
             if (currentHealth < health * 0.5f) {
-                if (Random.Range(0.0f, 1.0f) < 0.99f) {
+                if (Random.Range(0.0f, 1.0f) < 0.5f) {
                     myAnimator.SetTrigger("Attack2");
                 } else {
                     myAnimator.SetTrigger("Attack1");

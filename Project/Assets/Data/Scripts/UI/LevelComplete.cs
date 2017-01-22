@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour {
 
-
+    [SerializeField]
+    private AudioSource select;
 
     public void Menu() {
         SceneManager.LoadScene("Game");
         ExtensionPool.ClearAllPool();
+        select.Play();
     }
 }

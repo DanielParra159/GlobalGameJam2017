@@ -29,8 +29,10 @@ public sealed class ChangeZone : MonoBehaviour {
         gameObject.GetComponent<BoxCollider>().isTrigger = true;
         gameObject.layer = LayerDefinitions.PLAYER_TRIGGER_LAYER;
 
-        audioToEnable.Play();
-        audioToDisable.Stop();
+        /*if(audioToEnable)
+            audioToEnable.Play();
+        if(audioToDisable)
+            audioToDisable.Stop();*/
     }
 
     private IEnumerator ChangeZoneCoroutine(Transform playerTransform) {
