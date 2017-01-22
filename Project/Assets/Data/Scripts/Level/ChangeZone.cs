@@ -19,10 +19,18 @@ public sealed class ChangeZone : MonoBehaviour {
     [SerializeField]
     private GameObject[] objectsToEnable;
 
+    [SerializeField]
+    private AudioSource audioToEnable;
+    [SerializeField]
+    private AudioSource audioToDisable;
+
     private void OnTriggerEnter(Collider other) {
         StartCoroutine(ChangeZoneCoroutine(other.transform));
         gameObject.GetComponent<BoxCollider>().isTrigger = true;
         gameObject.layer = LayerDefinitions.PLAYER_TRIGGER_LAYER;
+
+        audioToEnable.Play();
+        audioToDisable.Stop();
     }
 
     private IEnumerator ChangeZoneCoroutine(Transform playerTransform) {

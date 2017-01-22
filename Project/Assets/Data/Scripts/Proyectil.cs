@@ -83,8 +83,10 @@ public class Proyectil : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerDefinitions.ENEMY_LAYER) {
             Destroy(gameObject);
-        }
-        else if (collision.gameObject.layer == LayerDefinitions.WALL_LAYER) {
+        } else if (collision.gameObject.layer == LayerDefinitions.ENEMY_PROJECTILE_LAYER) {
+            collision.gameObject.GetComponent<Dentadura>().Destruir();
+            Destroy(gameObject);
+        } else if (collision.gameObject.layer == LayerDefinitions.WALL_LAYER) {
             Destroy(gameObject);
 
             ContactPoint contact = collision.contacts[0];

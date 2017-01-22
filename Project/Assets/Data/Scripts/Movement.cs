@@ -104,6 +104,8 @@ public sealed class Movement : MonoBehaviour {
         mySequence.Insert(0.0f, myRenderer.DOColor(colorDamage, 0.2f));
         mySequence.Insert(0.2f, myRenderer.DOColor(Color.white, 0.2f));
         myRenderer.transform.DOShakePosition(0.2f, 0.01f, 10, 90, false, false);
+
+        Health.Instance.Damage();
     }
 
     public void SetSpriteDir(float dirX, float dirZ) {

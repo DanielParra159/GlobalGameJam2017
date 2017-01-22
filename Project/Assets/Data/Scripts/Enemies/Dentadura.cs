@@ -23,10 +23,14 @@ public class Dentadura : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.layer == LayerDefinitions.PLAYER_LAYER) {
-            gameObject.RecyclePool();
+            gameObject.transform.parent.gameObject.RecyclePool();
         } else if (other.gameObject.layer == LayerDefinitions.PLAYER_PROJECTILE_LAYER) {
             explosion.CreatePool(50);
-            gameObject.RecyclePool();
+            gameObject.transform.parent.gameObject.RecyclePool();
         }
+    }
+
+    public void Destruir() {
+        gameObject.transform.parent.gameObject.RecyclePool();
     }
 }

@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4136973203989288}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: Dentadura
   m_TagString: Untagged
   m_Icon: {fileID: 0}

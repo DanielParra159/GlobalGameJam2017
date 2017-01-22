@@ -123,5 +123,9 @@ namespace Common.Utils
                 Debug.LogWarning("El objeto " + prefab.name + " no estaba en pool");
             }
         }
+
+        public static void ClearAllPool() {
+            ExtensionPool.pools.Clear();
+        }
     }
 }
