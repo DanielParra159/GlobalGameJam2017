@@ -8,7 +8,7 @@ using Common.Utils;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Rigidbody))]
-public sealed class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour {
 
     private enum States {
         Walk,
@@ -48,13 +48,13 @@ public sealed class Enemy : MonoBehaviour {
 
     private Rigidbody myRigidbody;
     [SerializeField]
-    private SpriteRenderer myRenderer;
+    protected SpriteRenderer myRenderer;
     private NavMeshAgent myNavMeshAgent;
 
     private EnemySpawn spawn;
 
     [SerializeField]
-    private GameObject explosionPrefab;
+    protected GameObject explosionPrefab;
 
     private States currentState;
     private States CurrentState {
@@ -83,8 +83,8 @@ public sealed class Enemy : MonoBehaviour {
     }
 
     [SerializeField]
-    private int health = 5;
-    private int currentHealth = 5;
+    protected int health = 5;
+    protected int currentHealth = 5;
     [SerializeField]
     private float minDistanceToAttack = 0.5f;
     [SerializeField]
@@ -96,6 +96,9 @@ public sealed class Enemy : MonoBehaviour {
 
     [SerializeField]
     private Animator myAnimator;
+
+    [SerializeField]
+    private AudioSource[] deathAudio;
 
     int lastDirZ = 0;
     int lastDirX = 0;
@@ -110,11 +113,14 @@ public sealed class Enemy : MonoBehaviour {
         myNavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
         myAnimator = myRenderer.GetComponent<Animator>();
 
+        deathAudio = GameObject.FindGameObjectWithTag("AudioYayas").GetComponentsInChildren<AudioSource>();
+
         myRenderer.transform.SetParent(null);
     }
 
     private void OnDisable() {
-        myRenderer.gameObject.SetActive(false);
+        if (myRenderer != null)
+            myRenderer.gameObject.SetActive(false);
     }
     private void OnEnable() {
         myRenderer.gameObject.SetActive(true);
@@ -183,7 +189,7 @@ public sealed class Enemy : MonoBehaviour {
         CurrentState = States.Walk;
     }
 
-    public void DoDamage(int damage, Vector3 damageDir) {
+    public virtual void DoDamage(int damage, Vector3 damageDir) {
         damageDir.y = 0.0f;
         CurrentState = States.DoDamage;
         Sequence mySequence = DOTween.Sequence();
@@ -202,8 +208,15 @@ public sealed class Enemy : MonoBehaviour {
 
     private void Die() {
         MainCamara.Instance.Shake(1.0f);
-        spawn.EnemyDead(this);
         explosionPrefab.SpawnPool(transform.position);
+
+        if (Random.Range(0.0f, 1.0f) < 0.3f) {
+            int audioIndex = (Random.Range(0, deathAudio.Length));
+            if (!deathAudio[audioIndex].isPlaying)
+                deathAudio[audioIndex].Play();
+        }
+
+        spawn.EnemyDead(this);
     }
 
 #if UNITY_EDITOR

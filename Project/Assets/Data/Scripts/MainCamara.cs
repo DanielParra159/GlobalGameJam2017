@@ -12,6 +12,8 @@ public sealed class MainCamara : MonoBehaviour {
     [SerializeField]
     private Vector3 offset = new Vector3(0.0f, 5.0f, 0.0f);
 
+    private float offsetZ = 0.0f;
+
     private bool followPlayer = true;
     public bool FollowPlayer {
         get {
@@ -41,6 +43,7 @@ public sealed class MainCamara : MonoBehaviour {
     //private Vector3 velocity = Vector3.zero;
     // Update is called once per frame
     void LateUpdate () {
+        offset.z = offsetZ;
 
         //Vector3 playerPosition = Movement.Instance.SmoothPosition + offset;
         if (followPlayer) {
@@ -77,5 +80,17 @@ public sealed class MainCamara : MonoBehaviour {
             transform.GetChild(0).position = transform.position;
         }
         shake = transform.GetChild(0).DOShakePosition(duration, 1, 10, 90f);
+    }
+
+    public void BossCamera(bool enable) {
+        if (enable) {
+            transform.GetChild(0).GetComponent<Camera>().DOOrthoSize(6.0f, 1.0f);
+            Sequence mySequence = DOTween.Sequence();
+            mySequence.Insert(0.0f, DOTween.To(() => offsetZ, x => offsetZ = x, 0.0f, 2.2f));
+        } else {
+            transform.GetChild(0).GetComponent<Camera>().DOOrthoSize(4.0f, 1.0f);
+            Sequence mySequence = DOTween.Sequence();
+            mySequence.Insert(0.0f, DOTween.To(() => offsetZ, x => offsetZ = x, 2.2f, 0.0f));
+        }
     }
 }

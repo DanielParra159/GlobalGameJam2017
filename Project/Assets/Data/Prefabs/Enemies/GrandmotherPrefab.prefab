@@ -235,6 +235,7 @@ MonoBehaviour:
   damage: 1
   colorDamage: {r: 1, g: 0, b: 0, a: 1}
   myAnimator: {fileID: 0}
+  deathAudio: []
 --- !u!135 &135605398658293396
 SphereCollider:
   m_ObjectHideFlags: 1
