@@ -10,6 +10,10 @@ public sealed class Boss : Enemy {
     private AudioSource die;
     [SerializeField]
     private AudioSource damge;
+    [SerializeField]
+    private AudioSource attack1;
+    [SerializeField]
+    private AudioSource attack2;
 
     [SerializeField]
     private AudioSource bossMusic;
@@ -105,9 +109,11 @@ public sealed class Boss : Enemy {
         for (int i = 0; i < spawns.Length; ++i) {
             spawns[i].SetActive(true, false);
         }
+        attack1.Play();
     }
 
     public void Attack2() {
         dentadura.SpawnPool(MyTransform.position);
+        attack2.Play();
     }
 }
